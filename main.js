@@ -1,13 +1,38 @@
-import { numberLikes } from "./data.js";
 
-const buttonElement = document.getElementById('button');
 const listElement = document.getElementById('list');
+const buttonElement = document.getElementById('button');
 const nameInputElement = document.getElementById('name');
 const textInputElement = document.getElementById('textInput');
-const dateElement = document.getElementById('date');
-const likeAddElement = document.querySelectorAll('.like-button');
-const editButton = document.querySelector('.editButton');
 
+let numberLikes = []
+
+const reply = () => {
+  const comentInput = document.querySelector('.add-form-text');
+  const editButton = document.querySelectorAll('.comment');
+  for (const button of editButton) {
+    button.addEventListener('click', () => {
+      comentInput.value = `${button.querySelector('.coment-text').innerHTML}`
+    });
+  }
+}
+
+const initLikeElement = () => {
+  const likeAddElement = document.querySelectorAll('.like-button');
+
+  for (const likeElements of likeAddElement) {
+    likeElements.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const index = likeElements.dataset.index;
+      if (numberLikes[index].isActiveLike) {
+        numberLikes[index].likes--
+      } else {
+        numberLikes[index].likes++
+      }
+      numberLikes[index].isActiveLike = !numberLikes[index].isActiveLike;
+      renderComments();
+    });
+  };
+};
 
 const renderComments = () => {
   const likeHTML = numberLikes.map((comment, index) => {
@@ -36,35 +61,6 @@ const renderComments = () => {
   reply();
   initLikeElement();
 };
-renderComments();
-
-const initLikeElement = () => {
-  const likeAddElement = document.querySelectorAll('.like-button');
-
-  for (const likeElements of likeAddElement) {
-    likeElements.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const index = likeElements.dataset.index;
-      if (numberLikes[index].isActiveLike) {
-        numberLikes[index].likes--
-      } else {
-        numberLikes[index].likes++
-      }
-      numberLikes[index].isActiveLike = !numberLikes[index].isActiveLike;
-      renderComments();
-    });
-  };
-};
-
-const reply = () => {
-  const comentInput = document.querySelector('.add-form-text');
-  const editButton = document.querySelectorAll('.comment');
-  for (const button of editButton) {
-    button.addEventListener('click', () => {
-      comentInput.value = `${button.querySelector('.coment-text').innerHTML}`
-    });
-  }
-}
 
 buttonElement.addEventListener('click', () => {
   const oldListElement = listElement.innerHTML;
@@ -128,28 +124,12 @@ buttonElement.addEventListener('click', () => {
       textInputElement.value = "";
       renderComments();
     })
-    // .then((response) => {
-    //   return response;
-    // })
-    // .then((responseData) => {
-    //   if (response.status === 500) {
-    //     throw new Error("Ошибка сервера")
-    //   } else {
-    //     return response.json();
-    //   }
 
-    // })
     .then((data) => {
       buttonElement.disabled = false;
       buttonElement.textContent = "Написать";
     })
-    .catch((error) => {
-      buttonElement.disabled = false;
-      buttonElement.textContent = "Написать";
 
-      alert('Имя и комментарий должн быть не менее трех символов!');
-      console.log(error)
-    })
 });
 
-
+renderComments();

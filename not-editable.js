@@ -28,5 +28,4 @@ fetchPromise.then((response) => {
   });
 });
 
-
 renderComments()
