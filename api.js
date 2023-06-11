@@ -61,6 +61,7 @@ const postMethod = () => {
     buttonElement.textContent = "Написать";
   })
 }
+postMethod ()
 
 const getMethod = () => {
 
@@ -92,5 +93,6 @@ fetchPromise.then((response) => {
   });
 });
 }
+getMethod ()
 
 renderComments()
