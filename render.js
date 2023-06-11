@@ -6,6 +6,8 @@ const textInputElement = document.getElementById('textInput');
 
 let numberLikes = []
 
+getMethod ();
+
 const reply = () => {
   const comentInput = document.querySelector('.add-form-text');
   const editButton = document.querySelectorAll('.comment');
@@ -64,7 +66,6 @@ const renderComments = () => {
 
 buttonElement.addEventListener('click', () => {
   const oldListElement = listElement.innerHTML;
-
   const startAt = Date.now();
 
   buttonElement.disabled = true;

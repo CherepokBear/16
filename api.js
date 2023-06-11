@@ -1,4 +1,3 @@
-import { numberLikes } from "./data.js";
 
 const postMethod = () => {
   fetch('https://wedev-api.sky.pro/api/v1/dima-vorobev/comments',
@@ -60,8 +59,8 @@ const postMethod = () => {
     buttonElement.disabled = false;
     buttonElement.textContent = "Написать";
   })
-}
-postMethod ()
+};
+postMethod ();
 
 const getMethod = () => {
 
@@ -92,7 +91,7 @@ fetchPromise.then((response) => {
     renderComments();
   });
 });
-}
-getMethod ()
+};
+getMethod ();
 
-renderComments()
+renderComments();
