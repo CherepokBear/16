@@ -4,7 +4,7 @@ const buttonElement = document.getElementById('button');
 const nameInputElement = document.getElementById('name');
 const textInputElement = document.getElementById('textInput');
 
-export let numberLikes = []
+let numberLikes = []
 
 getMethod ();
 
@@ -71,7 +71,8 @@ buttonElement.addEventListener('click', () => {
   buttonElement.disabled = true;
   buttonElement.textContent = "Элемент добавлятся...";
 
- import { postMethod()  } from "./api.js";
+  postMethod();
+
 });
 
 renderComments();

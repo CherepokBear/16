@@ -93,4 +93,5 @@ fetchPromise.then((response) => {
 });
 };
 getMethod ();
-import { renderComments()  } from "./api.js";
+
+renderComments();
