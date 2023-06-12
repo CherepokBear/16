@@ -1,5 +1,5 @@
 
-const postMethod = () => {
+export const postMethod = () => {
   fetch('https://wedev-api.sky.pro/api/v1/dima-vorobev/comments',
   {
     method: 'POST',
@@ -62,7 +62,7 @@ const postMethod = () => {
 };
 postMethod ();
 
-const getMethod = () => {
+export const getMethod = () => {
 
 const fetchPromise = fetch("https://wedev-api.sky.pro/api/v1/dima-vorobev/comments", {
   method: "GET",
@@ -93,5 +93,4 @@ fetchPromise.then((response) => {
 });
 };
 getMethod ();
-
-renderComments();
+import { renderComments()  } from "./api.js";

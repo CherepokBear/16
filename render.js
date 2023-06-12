@@ -4,11 +4,11 @@ const buttonElement = document.getElementById('button');
 const nameInputElement = document.getElementById('name');
 const textInputElement = document.getElementById('textInput');
 
-let numberLikes = []
+export let numberLikes = []
 
 getMethod ();
 
-const reply = () => {
+export const reply = () => {
   const comentInput = document.querySelector('.add-form-text');
   const editButton = document.querySelectorAll('.comment');
   for (const button of editButton) {
@@ -18,7 +18,7 @@ const reply = () => {
   }
 }
 
-const initLikeElement = () => {
+export const initLikeElement = () => {
   const likeAddElement = document.querySelectorAll('.like-button');
 
   for (const likeElements of likeAddElement) {
@@ -36,7 +36,7 @@ const initLikeElement = () => {
   };
 };
 
-const renderComments = () => {
+export const renderComments = () => {
   const likeHTML = numberLikes.map((comment, index) => {
 
     return `<li class="comment">
@@ -71,8 +71,7 @@ buttonElement.addEventListener('click', () => {
   buttonElement.disabled = true;
   buttonElement.textContent = "Элемент добавлятся...";
 
-  postMethod();
-
+ import { postMethod()  } from "./api.js";
 });
 
 renderComments();
