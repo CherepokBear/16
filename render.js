@@ -1,15 +1,15 @@
-import { getMethod  } from "./students.js";
-import { postMethod  } from "./students.js";
+import { getMethod  } from "./api.js";
+import { postMethod  } from "./api.js";
 
 
-const listElement = document.getElementById('list');
-const buttonElement = document.getElementById('button');
-const nameInputElement = document.getElementById('name');
-const textInputElement = document.getElementById('textInput');
+export const listElement = document.getElementById('list');
+export const buttonElement = document.getElementById('button');
+export const nameInputElement = document.getElementById('name');
+export const textInputElement = document.getElementById('textInput');
 
 let numberLikes = []
 
-getMethod ();
+getMethod();
 
 export const reply = () => {
   const comentInput = document.querySelector('.add-form-text');

@@ -1,5 +1,6 @@
-import { renderComments  } from "./students.js";
-
+import { renderComments  } from "./render.js";
+import { textInputElement  } from "./render.js";
+import { nameInputElement  } from "./render.js";
 
 export const postMethod = () => {
   fetch('https://wedev-api.sky.pro/api/v1/dima-vorobev/comments',
@@ -30,9 +31,9 @@ export const postMethod = () => {
   .then((response) => {
     return response;
   })
-  .then((response) => {
-    return response.json();
-  })
+  // .then((response) => {
+  //   return response.json();
+  // })
   .then((response) => {
     return response;
   })
@@ -65,11 +66,9 @@ export const postMethod = () => {
 postMethod ();
 
 export const getMethod = () => {
-
 const fetchPromise = fetch("https://wedev-api.sky.pro/api/v1/dima-vorobev/comments", {
   method: "GET",
 });
-
 fetchPromise.then((response) => {
   const jsonPromise = response.json();
   jsonPromise.then((responseData) => {
