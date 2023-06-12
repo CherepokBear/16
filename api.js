@@ -1,3 +1,5 @@
+import { renderComments  } from "./students.js";
+
 
 export const postMethod = () => {
   fetch('https://wedev-api.sky.pro/api/v1/dima-vorobev/comments',

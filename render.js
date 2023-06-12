@@ -1,3 +1,6 @@
+import { getMethod  } from "./students.js";
+import { postMethod  } from "./students.js";
+
 
 const listElement = document.getElementById('list');
 const buttonElement = document.getElementById('button');
